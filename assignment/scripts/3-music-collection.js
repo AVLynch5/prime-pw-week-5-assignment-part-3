@@ -46,3 +46,35 @@ console.log('Artist search returned the following albums:', findByArtist('Kygo')
 console.log('Artist search returned the following albums:', findByArtist('Black Sabbath'));//expect empty results array
 console.log('Adding album to the collection:', addToCollection('Tron: Legacy','Daft Punk', '2010'));//adding a second album by Daft Punk to collection
 console.log('Artist search returned the following albums:', findByArtist('Daft Punk'));//expect 2 album objects in results array
+
+function search(object) {
+  let resultsArr = [];
+  if (!object) {
+    return collection;
+  }
+  if (!object.artist || !object.yearPublished) {
+    return collection;
+  }
+  for (i=0;i<collection.length;i++) {
+    if (object.artist === collection[i].artist && object.yearPublished == collection[i].yearPublished) {
+      resultsArr.push(collection[i]);
+    }
+  }
+  return resultsArr;
+}//end search
+
+//Test search
+console.log(search());
+console.log(search({artist: 'Ray Charles'}))
+console.log(search({artist: 'Ray Charles', yearPublished: '1957' }));
+console.log(search({artist: 'Guns N Roses', yearPublished: '1987' }));
+console.log(search({artist: 'Guns N Roses', yearPublished: 1987 }));
+
+// expected === behavior
+//primitive values:
+//  string
+//  boolean
+//  number
+
+// non-primitives: array, object containing primitive
+// [string, string, string, string]
