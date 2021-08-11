@@ -2,23 +2,24 @@ console.log('***** Music Collection *****')
 
 let collection = [];
 
-function addToCollection(title, artist, yearPublished) {
+function addToCollection(title, artist, yearPublished, tracksArr) {
   let newAlbum = {
     title: title,
     artist: artist,
     yearPublished: yearPublished,
+    tracks: tracksArr,
   };
   collection.push(newAlbum);
   return newAlbum;
 }//end addToCollection
 
 //Time to test addToCollection
-console.log('Adding album to the collection:', addToCollection('Appetite for Destruction','Guns N Roses', '1987'));
-console.log('Adding album to the collection:', addToCollection('Inside','Bo Burnham', '2021'));
-console.log('Adding album to the collection:', addToCollection('Cloud Nine','Kygo', '2016'));
-console.log('Adding album to the collection:', addToCollection('Aerosmith','Aerosmith', '1973'));
-console.log('Adding album to the collection:', addToCollection('Still in Love with You','Al Green', '1972'));
-console.log('Adding album to the collection:', addToCollection('Discovery','Daft Punk', '2001'));
+console.log('Adding album to the collection:', addToCollection('Appetite for Destruction','Guns N Roses', '1987', [{name: 'Welcome to the Jungle', duration: '4m31s'}, {name: 'Nighttrain', duration: '4m26s'}, {name: 'Rocket Queen', duration: '6m13s'}]));
+console.log('Adding album to the collection:', addToCollection('Inside','Bo Burnham', '2021', [{name: 'Bezos I', duration: '0m59s'}]));
+console.log('Adding album to the collection:', addToCollection('Cloud Nine','Kygo', '2016', [{name: 'Firestone', duration: '4m35s'}]));
+console.log('Adding album to the collection:', addToCollection('Aerosmith','Aerosmith', '1973', [{name: 'Dream On', duration: '4m28s'}]));
+console.log('Adding album to the collection:', addToCollection('Still in Love with You','Al Green', '1972', [{name: 'Love and Happiness', duration: '5m07s'}]));
+console.log('Adding album to the collection:', addToCollection('Discovery','Daft Punk', '2001', [{name: 'Digital Love', duration: '4m58s'}, {name: 'One More Time', duration: '5m20s'}]));
 console.log(collection);
 
 function showCollection(array) {
