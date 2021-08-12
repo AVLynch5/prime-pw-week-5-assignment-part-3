@@ -93,3 +93,5 @@ console.log(search('Firestone'));
 
 // non-primitives: array, object containing primitive
 // [string, string, string, string]
+
+//8-12-21 holy crap I've gotta comment these stretch goals before I forget how I nested these for loops
