@@ -24,8 +24,11 @@ console.log(collection);
 
 function showCollection(array) {
   console.log('Number of albums in the collection is:', array.length);
-  for (i=0; i<array.length; i++) {
-    console.log(array[i].title, 'by', array[i].artist + ', published in', array[i].yearPublished);
+  for (let x of array) {
+    console.log(x.title, 'by', x.artist + ', published in', x.yearPublished);
+    for (i=1; i<x.tracks.length+1; i++) {
+      console.log(i+'.', 'NAME:', x.tracks[i-1].name+', DURATION:', x.tracks[i-1].duration);
+    }
   }
 }//end showCollection
 
@@ -53,6 +56,16 @@ function search(object) {
   if (!object) {
     return collection;
   }
+  for (let x of collection) {
+    if (x.tracks) {
+      for (i=0; i<x.tracks.length; i++) {
+        if (x.tracks[i].name == object) {
+          resultsArr.push(x);
+          return resultsArr;
+        }
+      }
+    }
+  }
   if (!object.artist || !object.yearPublished) {
     return collection;
   }
@@ -70,6 +83,7 @@ console.log(search({artist: 'Ray Charles'}))
 console.log(search({artist: 'Ray Charles', yearPublished: '1957' }));
 console.log(search({artist: 'Guns N Roses', yearPublished: '1987' }));
 console.log(search({artist: 'Guns N Roses', yearPublished: 1987 }));
+console.log(search('Firestone'));
 
 // expected === behavior
 //primitive values:
